@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+
+
+{% block content %}
+<ul>
+    <li><a href="">Home</a></li>
+    <li><a href="">Blogs</a></li>
+
+</ul>
+<h1>Home Pahe</h1>
+<img src="{% static 'img/django.jpeg' %}" alt="" width="100">
+{% endblock %}
+{% block js_files %}
+    <script src="{% static 'blog/js/script.js' %}"></script>
+{% endblock %}
