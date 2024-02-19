@@ -9,6 +9,8 @@
     <title>{% block title%} {% endblock %}</title>
 </head>
 <body>
+    {% include 'partials/_navbar.html' %}
+    
     {% block content %}{% endblock %}
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/base.js' %}"></script>

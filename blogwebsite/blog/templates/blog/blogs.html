@@ -4,11 +4,19 @@
 {% endblock %}
 
 {% block content %}
-<ul>
-    <li><a href="">Home</a></li>
-    <li><a href="">Blogs</a></li>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-3">
+            {% include 'partials/_category.html' %}
+        </div>
+        <div class="col-9">
+            <h1>My Blogs</h1>
+            <hr>
+            {% include 'blog/partials/_card.html' %}
+            {% include 'blog/partials/_card.html' %}
 
-</ul>
-<h1>Blogs Pahe</h1>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
