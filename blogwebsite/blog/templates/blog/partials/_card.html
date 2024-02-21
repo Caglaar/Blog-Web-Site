@@ -2,15 +2,18 @@
 <div class="card mb-3">
     <div class="row g-0">
       <div class="col-md-3">
-        <img src="..." class="img-fluid rounded-start" alt="...">
+        <img src="{% static 'img/'|add:blog.image1 %}" class="img-fluid rounded-start" alt="...">
       </div>
       <div class="col-md-9">
         <div class="card-body">
           <h5 class="card-title">
-            <a href="{% url 'blog_details' 1 %}">Card title</a>
+            <a href="{% url 'blog_details' blog.id %}">{{blog.title}}</a>
           </h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text">{{blog.summary}}</p>
+          {% if blog.user == request.user %}
+          <p class="card-text">{{blog.user}}</p>
+          {% endif %}
         </div>
       </div>
     </div>
-  </div>
+</div>

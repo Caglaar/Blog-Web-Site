@@ -1,6 +1,8 @@
 {% extends "base.html" %}
+{% load static %}
+
 {% block title %}
-    Blogs
+    Home Page
 {% endblock %}
 
 {% block content %}
@@ -10,13 +12,18 @@
             {% include 'partials/_category.html' %}
         </div>
         <div class="col-9">
-            <h1>My Blogs</h1>
+            <h1>All Blogs</h1>
             <hr>
-            {% include 'blog/partials/_card.html' %}
-            {% include 'blog/partials/_card.html' %}
+            {% for blog in blogs %}
+                {% include 'blog/partials/_card.html' %}
+            {% endfor %}
+            
 
         </div>
     </div>
 </div>
 
+{% endblock %}
+{% block js_files %}
+    <script src="{% static 'blog/js/script.js' %}"></script>
 {% endblock %}

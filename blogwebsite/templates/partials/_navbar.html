@@ -5,9 +5,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'blogs' %}">Blogs</a>
+                <a class="nav-link" href="{% url 'blogs' %}">My Blogs</a>
             </li>
+            {% endif %}
         </ul>
         <ul class="navbar-nav ms-auto">
             {% if user.is_authenticated %}

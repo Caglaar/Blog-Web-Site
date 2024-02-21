@@ -14,8 +14,10 @@
         <div class="col-9">
             <h1>All Blogs</h1>
             <hr>
-            {% include 'blog/partials/_card.html' %}
-            {% include 'blog/partials/_card.html' %}
+            {% for blog in blogs %}
+                {% include 'blog/partials/_card.html' %}
+            {% endfor %}
+            
 
         </div>
     </div>
