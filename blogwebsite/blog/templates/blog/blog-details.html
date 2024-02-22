@@ -2,32 +2,33 @@
 {% load static %}
 
 {% block title %}
-    Blog Details
+    {{ blog.title }}
 {% endblock %}
 
 {% block content %}
-
 <div class="container mt-3">
     <div class="row">
         <div class="col-9 mt-3">
             <div class="card mb-3">
                 <div class="row g-0">
-                  <div class="col-md-3">
-                    <img src="{% static 'img/'|add:blog.image1 %}" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-9">
-                    <div class="card-body">
-                      <h5 class="card-title">
-                            {{blog.title}}
-                      </h5>
-                      <p class="card-text">{{blog.summary}}</p>
+                    <div class="col-md-3">
+                        <img src="{{ blog.image2.url }}" class="img-fluid rounded-start" alt="{{ blog.title }}">
                     </div>
-                  </div>
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ blog.title }}</h5>
+                            <p class="card-text">{{ blog.content }}</p>
+                            <p class="card-text"><small class="text-muted">Posted by {{ blog.user.username }}</small></p>
+                            <p class="card-text">Categories:
+                                {% for category in blog.categories.all %}
+                                    <span class="badge bg-primary">{{ category.name }}</span>
+                                {% endfor %}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
     </div>
 </div>
-
 {% endblock %}

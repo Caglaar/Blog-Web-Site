@@ -2,7 +2,7 @@
 <div class="card mb-3">
     <div class="row g-0">
       <div class="col-md-3">
-        <img src="{% static 'img/'|add:blog.image1 %}" class="img-fluid rounded-start" alt="...">
+        <img src="{{ blog.image1.url }}" class="img-fluid rounded-start" alt="...">
       </div>
       <div class="col-md-9">
         <div class="card-body">
@@ -11,8 +11,13 @@
           </h5>
           <p class="card-text">{{blog.summary}}</p>
           {% if blog.user == request.user %}
-          <p class="card-text">{{blog.user}}</p>
+            <div class="d-flex justify-content-end">
+              <a href="{% url 'blogs_edit' blog.id %}" class="btn btn-primary me-2">Edit</a>
+              <span class="mx-1"></span>
+              <a href="{% url 'blogs_delete' blog.id %}"class="btn btn-danger me-2" >Delete</a>
+            </div>
           {% endif %}
+          
         </div>
       </div>
     </div>
