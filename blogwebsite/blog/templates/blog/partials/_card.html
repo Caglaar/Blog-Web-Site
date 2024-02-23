@@ -14,7 +14,7 @@
             <div class="d-flex justify-content-end">
               <a href="{% url 'blogs_edit' blog.id %}" class="btn btn-primary me-2">Edit</a>
               <span class="mx-1"></span>
-              <a href="{% url 'blogs_delete' blog.id %}"class="btn btn-danger me-2" >Delete</a>
+              <a href="#" onclick="confirmDelete({{ blog.id }})" class="btn btn-danger me-2">Delete</a>
             </div>
           {% endif %}
           
@@ -22,3 +22,12 @@
       </div>
     </div>
 </div>
+
+<script>
+  function confirmDelete(blogId) {
+    var confirmation = confirm("Are you sure you want to delete this blog?");
+    if (confirmation) {
+        window.location.href = "/blogs/delete/" + blogId;
+    }
+}
+</script>
